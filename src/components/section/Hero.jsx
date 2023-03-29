@@ -1,7 +1,9 @@
 import React from 'react'
 import NewsCard from '../ui/NewsCard';
 const Hero = () => {
+ 
   return (
+
     <>
       <div className=" bg-black flex text-white font bold text-xl font bold px-8 gap-x-4">
         <p className="">Aline</p>
