@@ -7,6 +7,7 @@ const App = () => {
   return (
     <div className="w-full max-w-7xl mx-auto">
       <Navbar />
+      <Hero />
       <News />
       <Footer />
     </div>
