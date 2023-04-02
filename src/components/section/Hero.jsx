@@ -1,9 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchArticles } from "../../features/news";
 import NewsCard from "../ui/NewsCard";
 const Hero = () => {
   const newsArticle = useSelector((state) => state.news.value);
+  const [selectedPublisher, setSelectedPublisher] = useState(null);
+  const handlePublisherClick = (publisher) => {
+    setSelectedPublisher(publisher);
+  };
+  const resetFilters = () => {
+    setSelectedPublisher(null);
+  };
+
+  const articlesToDisplay = selectedPublisher
+    ? newsArticle.articles?.filter(
+        (article) => article.source.name === selectedPublisher
+      )
+    : newsArticle.articles;
+
   const dispatch = useDispatch();
   useEffect(() => {
     async function fetchData() {
@@ -12,22 +26,35 @@ const Hero = () => {
       );
       const data = await response.json();
       dispatch(fetchArticles(data));
-      setLoading(true);
     }
     fetchData();
   }, []);
   return (
-    <div className="bg-black flex justify-center items-center text-white text-xl font bold px-8 gap-x-4">
-      {newsArticle.articles?.map((article) => (
-        <a
-          href="#"
-          key={article.id}
+    <>
+      <div className="bg-black flex justify-center items-center text-white text-xl font bold px-8 gap-x-4">
+        <p
           className="underline cursor-pointer hover:text-blue-500"
+          onClick={resetFilters}
         >
-          {article.source.name}
-        </a>
-      ))}
-    </div>
+          All
+        </p>
+        {newsArticle.articles?.map((article) => (
+          <a
+            href="#"
+            key={article.id}
+            className="underline cursor-pointer hover:text-blue-500"
+            onClick={() => handlePublisherClick(article.source.name)}
+          >
+            {article.source.name}
+          </a>
+        ))}
+      </div>
+      <div className="grid grid-cols-3 gap-4 py-8 px-16 bg-gray-100">
+        {articlesToDisplay?.map((articles) => (
+          <NewsCard {...articles} key={articles.id} />
+        ))}
+      </div>
+    </>
   );
 };
 
