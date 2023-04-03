@@ -1,60 +1,50 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchArticles } from "../../features/news";
-import NewsCard from "../ui/NewsCard";
-const Hero = () => {
-  const newsArticle = useSelector((state) => state.news.value);
-  const [selectedPublisher, setSelectedPublisher] = useState(null);
-  const handlePublisherClick = (publisher) => {
-    setSelectedPublisher(publisher);
-  };
-  const resetFilters = () => {
-    setSelectedPublisher(null);
-  };
+import { fetchPublisher, clickedPublisher } from "../../features/news";
 
-  const articlesToDisplay = selectedPublisher
-    ? newsArticle.articles?.filter(
-        (article) => article.source.name === selectedPublisher
-      )
-    : newsArticle.articles;
-
+const Hero = ({ publisher }) => {
+  const newsArticle = useSelector((state) => state.news.publishers);
+  const selectedPublisher = useSelector((state) => state.news.selected);
   const dispatch = useDispatch();
+
+  const handlePublisherClick = ({ publisher }) => {
+    dispatch(clickedPublisher({ publisher }));
+    console.log({ publisher }, "hkhj");
+  };
+  const handleFilter = () => {
+    dispatch(clickedPublisher(null));
+  };
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=9d31be5f33f34336bd35d693b1f0e8fa&pagesize=10"
+        "https://newsapi.org/v2/top-headlines/sources?apiKey=9d31be5f33f34336bd35d693b1f0e8fa"
       );
       const data = await response.json();
-      dispatch(fetchArticles(data));
+      const publishers = data.sources.map((source) => source.id);
+      dispatch(fetchPublisher(publishers));
     }
     fetchData();
   }, []);
+
   return (
-    <>
-      <div className="bg-black flex justify-center items-center text-white text-xl font bold px-8 gap-x-4">
-        <p
+    <div className="bg-black flex gap-x-8 items-center text-white text-xl font bold px-4 py-2 overflow-x-auto">
+      <p
+        className="underline cursor-pointer hover:text-blue-500"
+        onClick={handleFilter}
+      >
+        All
+      </p>
+      {newsArticle?.map((publisher) => (
+        <a
+          href="#"
+          key={publisher}
           className="underline cursor-pointer hover:text-blue-500"
-          onClick={resetFilters}
+          onClick={() => handlePublisherClick(publisher)}
         >
-          All
-        </p>
-        {newsArticle.articles?.map((article) => (
-          <a
-            href="#"
-            key={article.id}
-            className="underline cursor-pointer hover:text-blue-500"
-            onClick={() => handlePublisherClick(article.source.name)}
-          >
-            {article.source.name}
-          </a>
-        ))}
-      </div>
-      <div className="grid grid-cols-3 gap-4 py-8 px-16 bg-gray-100">
-        {articlesToDisplay?.map((articles) => (
-          <NewsCard {...articles} key={articles.id} />
-        ))}
-      </div>
-    </>
+          {publisher}
+        </a>
+      ))}
+    </div>
   );
 };
 
