@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPublisher } from "../../features/news";
 import NewArticles from "./NewArticles";
@@ -20,7 +20,7 @@ const Home = () => {
         "https://newsapi.org/v2/top-headlines/sources?apiKey=9d31be5f33f34336bd35d693b1f0e8fa"
       );
       const data = await response.json();
-      const publishers = data.sources.map((source) => source.id);
+      const publishers = data.sources.map((source) => source.name);
       dispatch(fetchPublisher(publishers));
     }
     fetchData();
@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-black flex gap-x-8 items-center text-white text-xl font bold px-4 py-2 overflow-x-auto">
+      <div className="bg-black flex gap-x-8 items-center text-white font bold px-4 py-2 overflow-x-auto">
         <p
           className="underline cursor-pointer hover:text-blue-500"
           onClick={handleFilter}
@@ -39,14 +39,16 @@ const Home = () => {
           <a
             href="#"
             key={publisher}
-            className="underline cursor-pointer hover:text-blue-500"
+            className="underline cursor-pointer hover:text-blue-500 shrink-0"
             onClick={() => handlePublisherClick(publisher)}
           >
             {publisher}
           </a>
         ))}
       </div>
-      <NewArticles selectedPublisher={selectedPublisher} />
+      <Suspense>
+        <NewArticles selectedPublisher={selectedPublisher} />
+      </Suspense>
     </>
   );
 };

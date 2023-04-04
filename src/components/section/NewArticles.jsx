@@ -18,7 +18,7 @@ const NewArticles = ({ selectedPublisher }) => {
     fetchData();
   }, [selectedPublisher]);
   return (
-    <div className="grid grid-cols-3 gap-4 py-8 px-16 bg-gray-100">
+    <div className="grid grid-cols-3 gap-8 py-8 px-16 bg-gray-100">
       {newsArticle.articles?.map((article, index) => (
         <NewsCard {...article} key={index} />
       ))}
