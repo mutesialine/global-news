@@ -14,6 +14,7 @@ const NewsCard = ({
         <p className="text-sm gap-x-2 italic pt-2 font-bold">{title}</p>
         {/* <p className="text-sm leading-5 font-bold">{description}</p> */}
         <div className="flex flex-col text-sm gap-y-2 italic pt-2">
+          <p>{name}</p>
           <p>{author}</p>
           <p>{publishedAt}</p>
         </div>
