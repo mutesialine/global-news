@@ -1,7 +1,8 @@
 import React from "react";
-import Home from "./components/Home";
+
+import NewsArticles from "./components/section/NewsArticles";
 const App = () => {
-  return <Home />;
+  return <NewsArticles />;
 };
 
 export default App;

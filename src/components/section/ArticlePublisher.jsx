@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPublisher } from "../../features/news";
-import ArticleList from "./ArticleList";
-import NewsSearch from "./NewsSearch";
+import { choosePublisher, fetchPublisher } from "../../features/news";
 
 const ArticlePublisher = () => {
-  const dispatch = useDispatch();
   const newsArticle = useSelector((state) => state.news.publishers);
-  const [isSelectedPublisher, setSelectedPublisher] = useState(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
@@ -21,27 +17,24 @@ const ArticlePublisher = () => {
     fetchData();
   }, []);
   return (
-    <>
-      <div className="bg-black flex gap-x-8 items-center text-white font bold px-4 py-2 overflow-x-auto">
-        <p
-          className="underline cursor-pointer hover:text-blue-500"
-          onClick={() => setSelectedPublisher(null)}
+    <div className="bg-black flex gap-x-8 items-center text-white px-4 py-2 overflow-x-auto ">
+      <p
+        className="underline cursor-pointer hover:text-blue-500"
+        onClick={() => dispatch(choosePublisher(null))}
+      >
+        All
+      </p>
+      {newsArticle?.map((publisher) => (
+        <a
+          href="#"
+          key={publisher}
+          className="underline cursor-pointer hover:text-blue-500 shrink-0"
+          onClick={() => dispatch(choosePublisher(publisher))}
         >
-          All
-        </p>
-        {newsArticle?.map((publisher) => (
-          <a
-            href="#"
-            key={publisher}
-            className="underline cursor-pointer hover:text-blue-500 shrink-0"
-            onClick={() => setSelectedPublisher(publisher)}
-          >
-            {publisher}
-          </a>
-        ))}
-      </div>
-      <ArticleList selectedPublisher={isSelectedPublisher} />
-    </>
+          {publisher}
+        </a>
+      ))}
+    </div>
   );
 };
 

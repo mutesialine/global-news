@@ -2,11 +2,14 @@ import { useEffect } from "react";
 import NewsCard from "../ui/NewsCard";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchArticles } from "../../features/news";
-const ArticleList = ({ selectedPublisher }) => {
+const ArticleList = () => {
   const newsArticle = useSelector((state) => state.news.articles);
+  const selectedPublisher = useSelector(
+    (state) => state.news.selectedPublisher
+  );
   const searchArticles = useSelector((state) => state.news.search);
 
-  const firteledArticles = newsArticle.articles?.filter(
+  const filterAllArticles = newsArticle.articles?.filter(
     (article) =>
       article.title.toLowerCase().includes(searchArticles.toLowerCase()) ||
       article.description.toLowerCase().includes(searchArticles.toLowerCase())
@@ -29,7 +32,7 @@ const ArticleList = ({ selectedPublisher }) => {
         ? newsArticle.articles
             ?.slice(0, 10)
             .map((article, index) => <NewsCard {...article} key={index} />)
-        : firteledArticles?.map((article, index) => (
+        : filterAllArticles?.map((article, index) => (
             <NewsCard {...article} key={index} />
           ))}
     </div>
