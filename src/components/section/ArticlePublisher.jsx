@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPublisher } from "../../features/news";
 import ArticleList from "./ArticleList";
+import NewsSearch from "./NewsSearch";
 
 const ArticlePublisher = () => {
   const dispatch = useDispatch();
