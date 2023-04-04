@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import NewsCard from "../ui/NewsCard";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchArticles } from "../../features/news";
-const NewArticles = ({ selectedPublisher }) => {
+const ArticleList = ({ selectedPublisher }) => {
   const newsArticle = useSelector((state) => state.news.articles);
   const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchData() {
       const url = selectedPublisher
-        ? `https://newsapi.org/v2/everything?q=${selectedPublisher}&apiKey=9d31be5f33f34336bd35d693b1f0e8fa&pageSize=10`
-        : "https://newsapi.org/v2/top-headlines?country=us&apiKey=9d31be5f33f34336bd35d693b1f0e8fa&pagesize=9";
+        ? `https://newsapi.org/v2/everything?q=${selectedPublisher}&apiKey=ad59556824cf4437bfdff368fdd63f79&pageSize=10`
+        : "https://newsapi.org/v2/top-headlines?country=us&apiKey=ad59556824cf4437bfdff368fdd63f79&pagesize=9";
       const response = await fetch(url);
       const data = await response.json();
       dispatch(fetchArticles(data));
@@ -26,4 +26,4 @@ const NewArticles = ({ selectedPublisher }) => {
   );
 };
 
-export default NewArticles;
+export default ArticleList;

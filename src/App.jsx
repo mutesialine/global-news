@@ -1,15 +1,7 @@
 import React from "react";
-import Home from "./components/section/Home";
-import Footer from "./components/Layout/Footer";
-import Navbar from "./components/Layout/Navbar";
+import Home from "./components/Home";
 const App = () => {
-  return (
-    <div className="w-full max-w-7xl mx-auto">
-      <Navbar />
-      <Home />
-      <Footer />
-    </div>
-  );
+  return <Home />;
 };
 
 export default App;
