@@ -27,7 +27,7 @@ const ArticleList = () => {
     fetchData();
   }, [selectedPublisher]);
   return (
-    <div className="grid grid-cols-3 gap-8 py-8 px-16 bg-gray-100">
+    <div className="flex flex-col md:grid grid-cols-3 gap-8 py-8 px-16 bg-gray-100">
       {!searchArticles
         ? newsArticle.articles
             ?.slice(0, 10)
