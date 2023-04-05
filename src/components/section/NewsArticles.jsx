@@ -1,4 +1,4 @@
-import React from "react";
+import { Suspense } from "react";
 import { useSelector } from "react-redux";
 import Footer from "../Layout/Footer";
 import Navbar from "../layout/Navbar";
@@ -12,7 +12,10 @@ const NewsArticles = () => {
     <div className="w-full max-w-7xl mx-auto">
       <Navbar />
       <ArticlePublisher />
-      {!inputValue ? <ArticleList /> : <ArticlesSearch />}
+      <Suspense fallback={<p>loading..</p>}>
+        {!inputValue ? <ArticleList /> : <ArticlesSearch />}
+      </Suspense>
+
       <Footer />
     </div>
   );

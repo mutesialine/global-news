@@ -24,6 +24,10 @@ const ArticlesSearch = () => {
     }
     fetchData();
   }, [inputValue]);
+
+  console.log(inputValue);
+  console.log(searchArticles);
+
   return (
     <div className="flex flex-col md:grid grid-cols-3 gap-8 py-8 px-16 bg-gray-100">
       {filterAllArticles?.map((article, index) => (

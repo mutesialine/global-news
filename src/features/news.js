@@ -27,6 +27,7 @@ export const newSlice = createSlice({
     },
   },
 });
+
 export const {
   fetchArticles,
   fetchPublisher,
