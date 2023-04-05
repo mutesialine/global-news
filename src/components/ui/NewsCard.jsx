@@ -2,7 +2,6 @@ const NewsCard = ({
   styles,
   urlToImage,
   publishedAt,
-  description,
   author,
   title,
   url,
@@ -21,7 +20,6 @@ const NewsCard = ({
         >
           {title}
         </a>
-        {/* <p className="text-sm leading-5">{description}</p> */}
         <div className="flex gap-x-2  text-sm  italic pt-2">
           <p>{author}</p>
           <p>{publishedAt}</p>

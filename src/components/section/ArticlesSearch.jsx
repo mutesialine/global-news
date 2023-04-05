@@ -1,9 +1,8 @@
-import React from "react";
 import NewsCard from "../ui/NewsCard";
 import { useSelector, useDispatch } from "react-redux";
 import { searchCategory } from "../../features/news";
 import { useEffect } from "react";
-
+import { getEverything } from "../../features/api";
 const ArticlesSearch = () => {
   const searchArticles = useSelector((state) => state.news.search);
   const newsArticles = useSelector((state) => state.news.articles);
@@ -20,10 +19,7 @@ const ArticlesSearch = () => {
   );
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        "https://newsapi.org/v2/everything?q=everything&apiKey=2a4f6ac999f3498aa110ce6580a412b0"
-      );
-      const data = await response.json();
+      const data = await getEverything();
       dispatch(searchCategory(data));
     }
     fetchData();

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import NewsCard from "../ui/NewsCard";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchArticles } from "../../features/news";
+import { getTopHeadlines } from "../../features/api";
 const ArticleList = () => {
   const newsArticle = useSelector((state) => state.news.articles);
   const selectedPublisher = useSelector(
@@ -11,11 +12,7 @@ const ArticleList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     async function fetchData() {
-      const url = selectedPublisher
-        ? `https://newsapi.org/v2/top-headlines?sources=${selectedPublisher}&apiKey=2a4f6ac999f3498aa110ce6580a412b0`
-        : "https://newsapi.org/v2/top-headlines?country=us&apiKey=2a4f6ac999f3498aa110ce6580a412b0";
-      const response = await fetch(url);
-      const data = await response.json();
+      const data = await getTopHeadlines("us", selectedPublisher);
       dispatch(fetchArticles(data));
     }
     fetchData();

@@ -1,8 +1,7 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { searchCategory, setInputValue } from "../../features/news";
+import { setInputValue } from "../../features/news";
 const Navbar = () => {
-  const searchArticles = useSelector((state) => state.news.search);
   const inputValue = useSelector((state) => state.news.inputValue);
   const dispatch = useDispatch();
   return (

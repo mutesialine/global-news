@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { getSources } from "../../features/api";
 import { choosePublisher, fetchPublisher } from "../../features/news";
 
 const ArticlePublisher = () => {
-  const newsArticle = useSelector((state) => state.news.publishers);
+  const newsPublisher = useSelector((state) => state.news.publishers);
+  const selectedPublisher = useSelector(
+    (state) => state.news.selectedPublisher
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        "https://newsapi.org/v2/top-headlines/sources?apiKey=2a4f6ac999f3498aa110ce6580a412b0"
-      );
-      const data = await response.json();
-      const publishers = data.sources.map((source) => source.id);
+      const publishers = await getSources();
       dispatch(fetchPublisher(publishers));
     }
     fetchData();
@@ -24,11 +24,11 @@ const ArticlePublisher = () => {
       >
         All
       </p>
-      {newsArticle?.map((publisher) => (
+      {newsPublisher?.map((publisher) => (
         <a
           href="#"
           key={publisher}
-          className="underline cursor-pointer hover:text-blue-500 shrink-0"
+          className={`underline cursor-pointer hover:text-blue-500 shrink-0`}
           onClick={() => dispatch(choosePublisher(publisher))}
         >
           {publisher}
