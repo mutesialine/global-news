@@ -1,8 +1,9 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { searchCategory } from "../../features/news";
+import { searchCategory, setInputValue } from "../../features/news";
 const Navbar = () => {
   const searchArticles = useSelector((state) => state.news.search);
+  const inputValue = useSelector((state) => state.news.inputValue);
   const dispatch = useDispatch();
   return (
     <div className="text-black py-8 px-32 flex justify-between border-b-2 border-black">
@@ -11,15 +12,11 @@ const Navbar = () => {
         <input
           type="text"
           placeholder="search"
-          value={searchArticles}
+          value={inputValue}
           className="outline-none text-black"
-          onChange={(event) => dispatch(searchCategory(event.target.value))}
+          onChange={(event) => dispatch(setInputValue(event.target.value))}
         />
-        <AiOutlineSearch
-          size={24}
-          className="pl-2"
-          onClick={() => dispatch(searchCategory(inputValue))}
-        />
+        <AiOutlineSearch size={24} className="pl-2" />
       </div>
     </div>
   );

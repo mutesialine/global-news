@@ -8,10 +8,10 @@ const ArticlePublisher = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://newsapi.org/v2/top-headlines/sources?apiKey=ad59556824cf4437bfdff368fdd63f79"
+        "https://newsapi.org/v2/top-headlines/sources?apiKey=2a4f6ac999f3498aa110ce6580a412b0"
       );
       const data = await response.json();
-      const publishers = data.sources.map((source) => source.name);
+      const publishers = data.sources.map((source) => source.id);
       dispatch(fetchPublisher(publishers));
     }
     fetchData();

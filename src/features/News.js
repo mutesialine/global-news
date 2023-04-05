@@ -5,7 +5,7 @@ export const newSlice = createSlice({
     articles: [],
     publishers: [],
     selectedPublisher: null,
-    search: "",
+    search: [],
     inputValue: "",
   },
   reducers: {
@@ -16,10 +16,14 @@ export const newSlice = createSlice({
       state.publishers = action.payload;
     },
     choosePublisher: (state, action) => {
+      state.inputValue = null;
       state.selectedPublisher = action.payload;
     },
     searchCategory: (state, action) => {
       state.search = action.payload;
+    },
+    setInputValue: (state, action) => {
+      state.inputValue = action.payload;
     },
   },
 });
