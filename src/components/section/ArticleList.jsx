@@ -20,7 +20,11 @@ const ArticleList = () => {
   return (
     <div className="flex flex-col md:grid grid-cols-3 gap-8 py-8 px-16">
       {newsArticle.articles?.slice(0, 10).map((article, index) => (
-        <NewsCard {...article} key={index} styles="last-of-type:col-span-2" />
+        <NewsCard
+          {...article}
+          key={index}
+          styles="first-of-type:col-span-2 last-of-type:row-span-col-span-2"
+        />
       ))}
     </div>
   );
