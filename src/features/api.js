@@ -3,7 +3,7 @@ const API_KEY = "2868fed31c4d4eccbc9ecbea3f12b80d";
 export const getTopHeadlines = async (country, sources = null) => {
   const url = sources
     ? `https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=${API_KEY}`
-    : `https://news-proxy.netlify.app/top-headlines?country=${country}&apiKey=${API_KEY}`;
+    : `https://news-proxy.netlify.app/api/top-headlines?country=${country}&apiKey=${API_KEY}`;
 
   const response = await fetch(url);
   const data = await response.json();
