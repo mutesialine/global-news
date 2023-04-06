@@ -29,7 +29,7 @@ const ArticlesSearch = () => {
   console.log(searchArticles);
 
   return (
-    <div className="flex flex-col md:grid grid-cols-3 gap-8 py-8 px-16 bg-gray-100">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8 px-5 md:px-16">
       {filterAllArticles?.map((article, index) => (
         <NewsCard {...article} key={index} />
       ))}
