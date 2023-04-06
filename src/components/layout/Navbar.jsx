@@ -5,9 +5,9 @@ const Navbar = () => {
   const inputValue = useSelector((state) => state.news.inputValue);
   const dispatch = useDispatch();
   return (
-    <div className="text-black py-8 px-32 flex justify-between  gap-x-4 border-b-2 border-black">
-      <h2 className="text-4xl font-bold italic">GNews</h2>
-      <div className="flex gap-2  px-4 items-center border divide-x divide-solid">
+    <div className="py-8 px-8 md:px-32 flex gap-y-6 justify-between border-b-2 border-black">
+      <h2 className="text-lg md:text-4xl font-bold italic">GNews</h2>
+      <div className="flex gap-2 px-4 items-center border divide-x divide-solid">
         <input
           type="text"
           placeholder="search"

@@ -10,8 +10,8 @@ const NewsArticles = () => {
   const inputValue = useSelector((state) => state.news.inputValue);
   return (
     <>
+      <Navbar />
       <Wrapper>
-        <Navbar />
         <ArticlePublisher />
         {!inputValue ? <ArticleList /> : <ArticlesSearch />}
       </Wrapper>
