@@ -7,6 +7,7 @@ const NewsCard = ({
   url,
   source,
 }) => {
+  const time = new Date(publishedAt);
   return (
     <div
       className={`${styles} space-y-2 relative text-black flex flex-col item-center`}
@@ -22,7 +23,9 @@ const NewsCard = ({
         </a>
         <div className="flex gap-x-2  text-sm  italic pt-2">
           <p>{author}</p>
-          <p>{publishedAt}</p>
+          <p>
+            {time.getHours()}H - {time.getDay()}D - {time.getMonth()}{" "}
+          </p>
         </div>
       </div>
     </div>

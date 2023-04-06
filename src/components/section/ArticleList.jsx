@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import NewsCard from "../ui/NewsCard";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchArticles } from "../../features/news";
@@ -18,12 +18,10 @@ const ArticleList = () => {
     fetchData();
   }, [selectedPublisher]);
   return (
-    <div className="flex flex-col md:grid grid-cols-3 gap-8 py-8 px-16 bg-gray-100">
-      <Suspense fallback={<p>loading...</p>}>
-        {newsArticle.articles?.slice(0, 10).map((article, index) => (
-          <NewsCard {...article} key={index} />
-        ))}
-      </Suspense>
+    <div className="flex flex-col md:grid grid-cols-3 gap-8 py-8 px-16">
+      {newsArticle.articles?.slice(0, 10).map((article, index) => (
+        <NewsCard {...article} key={index} styles="last-of-type:col-span-2" />
+      ))}
     </div>
   );
 };

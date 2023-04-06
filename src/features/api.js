@@ -1,4 +1,4 @@
-const API_KEY = "9d31be5f33f34336bd35d693b1f0e8fa";
+const API_KEY = "2868fed31c4d4eccbc9ecbea3f12b80d";
 
 export const getTopHeadlines = async (country, sources = null) => {
   const url = sources
