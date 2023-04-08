@@ -13,7 +13,7 @@ const Navbar = () => {
             type="text"
             placeholder="search"
             value={inputValue}
-            className="outline-none text-black"
+            className="outline-none text-black w-12 sm:w-auto text-sm"
             onChange={(event) => dispatch(setInputValue(event.target.value))}
           />
           <AiOutlineSearch size={24} className="text-gray-400 pl-2" />
