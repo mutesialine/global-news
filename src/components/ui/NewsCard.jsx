@@ -23,9 +23,7 @@ const NewsCard = ({
         </a>
         <div className="flex gap-x-2  text-sm  italic pt-2">
           <p>{author}</p>
-          <p>
-            {time.getHours()}H - {time.getDay()}D - {time.getMonth()}{" "}
-          </p>
+          <p>{time.getHours()} hrs ago</p>
         </div>
       </div>
     </div>
