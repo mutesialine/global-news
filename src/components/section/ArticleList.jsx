@@ -19,7 +19,7 @@ const ArticleList = () => {
   }, [selectedPublisher]);
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8 px-5 md:px-16">
-      {newsArticle.articles?.slice(0, 9).map((article, index) => (
+      {newsArticle.articles?.slice(0, 12).map((article, index) => (
         <NewsCard {...article} key={index} />
       ))}
     </div>
