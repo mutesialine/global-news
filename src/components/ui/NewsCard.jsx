@@ -1,13 +1,5 @@
 import moment from "moment";
-const NewsCard = ({
-  styles,
-  urlToImage,
-  publishedAt,
-  author,
-  title,
-  url,
-  source,
-}) => {
+const NewsCard = ({ styles, urlToImage, publishedAt, title, url, source }) => {
   const formattedTime = moment(publishedAt).format("MMM Do YYYY, h:mm:ss a");
 
   return (
