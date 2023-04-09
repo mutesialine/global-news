@@ -1,3 +1,4 @@
+import moment from "moment";
 const NewsCard = ({
   styles,
   urlToImage,
@@ -7,7 +8,8 @@ const NewsCard = ({
   url,
   source,
 }) => {
-  const time = new Date(publishedAt);
+  const formattedTime = moment(publishedAt).format("MMM Do YYYY, h:mm:ss a");
+
   return (
     <div
       className={`${styles} space-y-2 relative text-black flex flex-col item-center`}
@@ -22,7 +24,7 @@ const NewsCard = ({
           {title}
         </a>
         <div className="flex gap-x-2  text-sm  italic pt-2">
-          <p>{time.getHours()} hrs ago</p>
+          <p>{formattedTime}</p>
         </div>
       </div>
     </div>

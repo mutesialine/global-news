@@ -32,7 +32,7 @@ const ArticlePublisher = () => {
   }, []);
   return (
     <div className="flex gap-x-6 items-center px-8 py-2 text-white bg-black">
-      <div onClick={() => handleScroll(-300)}>
+      <div onClick={() => handleScroll(-200)}>
         <AiOutlineLeftCircle size={25} />
       </div>
 
@@ -55,7 +55,7 @@ const ArticlePublisher = () => {
           </p>
         ))}
       </div>
-      <div onClick={() => handleScroll(300)}>
+      <div onClick={() => handleScroll(200)}>
         <AiOutlineRightCircle size={24} />
       </div>
     </div>
