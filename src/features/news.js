@@ -7,6 +7,7 @@ export const newSlice = createSlice({
     selectedPublisher: null,
     search: [],
     inputValue: "",
+    loading: true,
   },
   reducers: {
     fetchArticles: (state, action) => {
@@ -25,6 +26,9 @@ export const newSlice = createSlice({
     setInputValue: (state, action) => {
       state.inputValue = action.payload;
     },
+    loadingData: (state, action) => {
+      state.loading = action.payload;
+    },
   },
 });
 
@@ -34,5 +38,6 @@ export const {
   choosePublisher,
   searchCategory,
   setInputValue,
+  loadingData,
 } = newSlice.actions;
 export default newSlice.reducer;

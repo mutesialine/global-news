@@ -1,13 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getSources } from "../../features/api";
-import { choosePublisher, fetchPublisher } from "../../features/news";
-import {
-  AiOutlineLeftCircle,
-  AiOutlineRight,
-  AiOutlineRightCircle,
-  AiOutlineSearch,
-} from "react-icons/ai";
+import { getTopHeadlines } from "../../features/api";
+import { choosePublisher, fetchArticles } from "../../features/news";
+import { AiOutlineLeftCircle, AiOutlineRightCircle } from "react-icons/ai";
 
 const ArticlePublisher = () => {
   const dispatch = useDispatch();
@@ -23,13 +18,12 @@ const ArticlePublisher = () => {
     }
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      const publishers = await getSources();
-      dispatch(fetchPublisher(publishers));
-    }
-    fetchData();
-  }, []);
+  const handleSelectedPublisher = async (publisher) => {
+    dispatch(choosePublisher(publisher));
+    const data = await getTopHeadlines("us", publisher);
+    dispatch(fetchArticles(data));
+  };
+
   return (
     <div className="flex gap-x-6 items-center px-8 py-2 text-white bg-black">
       <div onClick={() => handleScroll(-200)}>
@@ -39,7 +33,7 @@ const ArticlePublisher = () => {
       <div ref={refInput} className="flex gap-x-8 overflow-hidden">
         <p
           className={`underline cursor-pointer hover:text-blue-50`}
-          onClick={() => dispatch(choosePublisher(null))}
+          onClick={() => handleSelectedPublisher(null)}
         >
           All
         </p>
@@ -49,7 +43,7 @@ const ArticlePublisher = () => {
             className={`underline cursor-pointer font-bold hover:text-blue-700 shrink-0 ${
               selectedPublisher === publisher ? "text-blue-700" : ""
             }`}
-            onClick={() => dispatch(choosePublisher(publisher))}
+            onClick={() => handleSelectedPublisher(publisher)}
           >
             {publisher}
           </p>

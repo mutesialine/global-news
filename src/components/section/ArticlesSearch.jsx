@@ -1,6 +1,6 @@
 import NewsCard from "../ui/NewsCard";
 import { useSelector, useDispatch } from "react-redux";
-import { searchCategory } from "../../features/news";
+import { searchCategory, loadingData } from "../../features/news";
 import { useEffect } from "react";
 import { getEverything } from "../../features/api";
 const ArticlesSearch = () => {
@@ -21,6 +21,7 @@ const ArticlesSearch = () => {
     async function fetchData() {
       const data = await getEverything();
       dispatch(searchCategory(data));
+      dispatch(loadingData(false));
     }
     fetchData();
   }, [inputValue]);
