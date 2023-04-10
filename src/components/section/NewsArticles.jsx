@@ -12,6 +12,7 @@ import {
 } from "../../features/news";
 import { useEffect } from "react";
 import { getSources, getTopHeadlines } from "../../features/api";
+import ArticleListSkeleton from "./ArticleListSkeleton";
 
 const NewsArticles = () => {
   const inputValue = useSelector((state) => state.news.inputValue);
@@ -35,7 +36,7 @@ const NewsArticles = () => {
       <Navbar />
       <Wrapper>
         {loading ? (
-          <p>loading</p>
+          <ArticleListSkeleton />
         ) : (
           <>
             <ArticlePublisher />
