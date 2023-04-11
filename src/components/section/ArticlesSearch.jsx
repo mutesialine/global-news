@@ -1,8 +1,9 @@
-import NewsCard from "../ui/NewsCard";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { searchCategory, loadingData } from "../../features/news";
-import { useEffect } from "react";
+import NewsCard from "../ui/NewsCard";
 import { getEverything } from "../../features/api";
+import { Link } from "react-router-dom";
 const ArticlesSearch = () => {
   const searchArticles = useSelector((state) => state.news.search);
   const newsArticles = useSelector((state) => state.news.articles);
@@ -29,7 +30,9 @@ const ArticlesSearch = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8 px-5 md:px-16 mb-10">
       {filterAllArticles?.map((article, index) => (
-        <NewsCard {...article} key={index} />
+        <Link to={"/full"} state={article} key={index}>
+          <NewsCard {...article} />
+        </Link>
       ))}
     </div>
   );

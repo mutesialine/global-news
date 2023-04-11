@@ -1,18 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../layout/Navbar";
-import Footer from "../layout/Footer";
-import ArticleList from "./ArticleList";
-import ArticlePublisher from "./ArticlePublisher";
-import ArticlesSearch from "./ArticlesSearch";
-import Wrapper from "../layout/Wrapper";
-import {
-  updateArticles,
-  updatePublisher,
-  loadingData,
-} from "../../features/news";
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+import ArticleList from "../components/section/ArticleList";
+import ArticlePublisher from "../components/section/ArticlePublisher";
+import ArticlesSearch from "../components/section/ArticlesSearch";
+import Wrapper from "../components/layout/Wrapper";
+import { updateArticles, updatePublisher, loadingData } from "../features/news";
 import { useEffect } from "react";
-import { getSources, getTopHeadlines } from "../../features/api";
-import ArticleListSkeleton from "./ArticleListSkeleton";
+import { getSources, getTopHeadlines } from "../features/api";
+import ArticleListSkeleton from "../components/section/ArticleListSkeleton";
 
 const NewsArticles = () => {
   const inputValue = useSelector((state) => state.news.inputValue);
@@ -44,7 +40,6 @@ const NewsArticles = () => {
           </>
         )}
       </Wrapper>
-      <Footer />
     </div>
   );
 };
