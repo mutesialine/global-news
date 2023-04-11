@@ -10,10 +10,10 @@ export const newSlice = createSlice({
     loading: true,
   },
   reducers: {
-    fetchArticles: (state, action) => {
+    updateArticles: (state, action) => {
       state.articles = action.payload;
     },
-    fetchPublisher: (state, action) => {
+    updatePublisher: (state, action) => {
       state.publishers = action.payload;
     },
     choosePublisher: (state, action) => {
@@ -33,8 +33,8 @@ export const newSlice = createSlice({
 });
 
 export const {
-  fetchArticles,
-  fetchPublisher,
+  updateArticles,
+  updatePublisher,
   choosePublisher,
   searchCategory,
   setInputValue,

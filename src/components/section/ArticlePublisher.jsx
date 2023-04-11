@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getTopHeadlines } from "../../features/api";
-import { choosePublisher, fetchArticles } from "../../features/news";
+import { choosePublisher, updateArticles } from "../../features/news";
 import { AiOutlineLeftCircle, AiOutlineRightCircle } from "react-icons/ai";
 
 const ArticlePublisher = () => {
@@ -21,7 +21,7 @@ const ArticlePublisher = () => {
   const handleSelectedPublisher = async (publisher) => {
     dispatch(choosePublisher(publisher));
     const data = await getTopHeadlines("us", publisher);
-    dispatch(fetchArticles(data));
+    dispatch(updateArticles(data));
   };
 
   return (

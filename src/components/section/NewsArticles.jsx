@@ -6,8 +6,8 @@ import ArticlePublisher from "./ArticlePublisher";
 import ArticlesSearch from "./ArticlesSearch";
 import Wrapper from "../layout/Wrapper";
 import {
-  fetchArticles,
-  fetchPublisher,
+  updateArticles,
+  updatePublisher,
   loadingData,
 } from "../../features/news";
 import { useEffect } from "react";
@@ -24,8 +24,8 @@ const NewsArticles = () => {
     async function fetchData() {
       const publishers = await getSources();
       const data = await getTopHeadlines("us");
-      dispatch(fetchArticles(data));
-      dispatch(fetchPublisher(publishers));
+      dispatch(updateArticles(data));
+      dispatch(updatePublisher(publishers));
       dispatch(loadingData(false));
     }
     fetchData();
