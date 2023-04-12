@@ -6,20 +6,10 @@ import { getEverything } from "../../features/api";
 import { Link } from "react-router-dom";
 const ArticlesSearch = () => {
   const searchArticles = useSelector((state) => state.news.search);
-  const newsArticles = useSelector((state) => state.news.articles);
   const inputValue = useSelector((state) => state.news.inputValue);
+
   const dispatch = useDispatch();
 
-  console.log("hjldf", searchArticles);
-
-  // const filterAllArticles = [
-  //   ...(searchArticles?.articles || []),
-  //   ...(newsArticles?.articles || []),
-  // ]?.filter(
-  //   (article) =>
-  //     article.title.toLowerCase().includes(inputValue.toLowerCase()) ||
-  //     article.source.name.toLowerCase().includes(inputValue.toLowerCase())
-  // );
   useEffect(() => {
     async function fetchData() {
       const data = await getEverything(inputValue);
