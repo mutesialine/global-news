@@ -24,7 +24,7 @@ const FullArticle = () => {
             <p className=" text-3xl">{state.description}</p>
             <a
               href={state.url}
-              className="text-red-500 text-lg hover:opacity-80"
+              className="text-red-500 text-lg hover:opacity-80 cursor-pointer"
             >
               More...
             </a>

@@ -3,7 +3,7 @@ const NewsCard = ({ urlToImage, publishedAt, title, source }) => {
   const formattedTime = moment(publishedAt).format("MMM Do YYYY, h:mm:ss a");
 
   return (
-    <div className="space-y-2 relative text-black flex flex-col item-center group hover:opacity-80">
+    <div className="space-y-2 relative text-black flex flex-col item-center group hover:opacity-80 cursor-pointer">
       <img
         src={urlToImage}
         alt="image"
