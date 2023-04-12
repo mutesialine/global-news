@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/Layout/Footer";
 import FullArticle from "./pages/FullArticle";
 import NewsArticles from "./pages/NewsArticles";
 const App = () => {
@@ -11,7 +10,6 @@ const App = () => {
           <Route path="/full" element={<FullArticle />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </>
   );
 };
