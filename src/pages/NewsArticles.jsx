@@ -8,6 +8,7 @@ import { updateArticles, updatePublisher, loadingData } from "../features/news";
 import { useEffect } from "react";
 import { getSources, getTopHeadlines } from "../features/api";
 import ArticleListSkeleton from "../components/section/ArticleListSkeleton";
+import Footer from "../components/Layout/Footer";
 
 const NewsArticles = () => {
   const inputValue = useSelector((state) => state.news.inputValue);
@@ -27,7 +28,7 @@ const NewsArticles = () => {
   }, []);
 
   return (
-    <div className="min-h-screen  flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <Wrapper>
         {loading ? (
@@ -39,6 +40,7 @@ const NewsArticles = () => {
           </>
         )}
       </Wrapper>
+      <Footer />
     </div>
   );
 };
