@@ -8,7 +8,7 @@ import { updateArticles, updatePublisher, loadingData } from "../features/news";
 import { useEffect } from "react";
 import { getSources, getTopHeadlines } from "../features/api";
 import ArticleListSkeleton from "../components/section/ArticleListSkeleton";
-import Footer from "../components/Layout/Footer";
+import Footer from "../components/layout/Footer";
 
 const NewsArticles = () => {
   const inputValue = useSelector((state) => state.news.inputValue);

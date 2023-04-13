@@ -1,4 +1,4 @@
-const API_KEY = "a69cb9134c1d45e4a58314cca10a7809";
+const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = "https://news-proxy.netlify.app/api";
 
 export const getTopHeadlines = async (country, sources = null) => {
