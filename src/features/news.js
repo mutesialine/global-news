@@ -1,14 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+const initialState = {
+  articles: [],
+  publishers: [],
+  selectedPublisher: null,
+  search: [],
+  inputValue: "",
+  loading: true,
+};
 export const newSlice = createSlice({
   name: "news",
-  initialState: {
-    articles: [],
-    publishers: [],
-    selectedPublisher: null,
-    search: [],
-    inputValue: "",
-    loading: true,
-  },
+  initialState: initialState,
   reducers: {
     updateArticles: (state, action) => {
       state.articles = action.payload;
