@@ -4,7 +4,6 @@ import NewsCard from "../ui/NewsCard";
 
 const ArticleList = () => {
   const newsArticle = useSelector((state) => state.news.articles);
-  const globalLoading = useSelector((state) => state.news.loading);
   const localLoading = useSelector((state) => state.news.localLoading);
   return (
     <div

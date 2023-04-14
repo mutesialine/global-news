@@ -7,7 +7,7 @@ import {
   updateArticles,
   setLocalLoading,
 } from "../../features/news";
-import { AiOutlineLeftCircle, AiOutlineRightCircle } from "react-icons/ai";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const ArticlePublisher = () => {
   const dispatch = useDispatch();
@@ -36,9 +36,9 @@ const ArticlePublisher = () => {
     <div className="flex gap-x-6 items-center px-8 py-2 text-white bg-black">
       <div
         onClick={() => handleScroll(-200)}
-        className="hover:bg-gray-600 rounded-md cursor-pointer"
+        className="hover:bg-gray-600 rounded-full cursor-pointer p-2"
       >
-        <AiOutlineLeftCircle size={25} />
+        <BsChevronLeft size={20} />
       </div>
 
       <div ref={refInput} className="flex gap-x-8 overflow-hidden">
@@ -62,9 +62,9 @@ const ArticlePublisher = () => {
       </div>
       <div
         onClick={() => handleScroll(200)}
-        className="hover:bg-gray-600 rounded-md cursor-pointer"
+        className="hover:bg-gray-600 p-2 rounded-full cursor-pointer"
       >
-        <AiOutlineRightCircle size={24} />
+        <BsChevronRight size={20} />
       </div>
     </div>
   );
