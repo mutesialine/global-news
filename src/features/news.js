@@ -6,6 +6,7 @@ const initialState = {
   search: [],
   inputValue: "",
   loading: true,
+  localLoading: false,
 };
 export const newSlice = createSlice({
   name: "news",
@@ -30,6 +31,10 @@ export const newSlice = createSlice({
     loadingData: (state, action) => {
       state.loading = action.payload;
     },
+
+    setLocalLoading: (state, action) => {
+      state.localLoading = action.payload;
+    },
   },
 });
 
@@ -40,5 +45,6 @@ export const {
   searchCategory,
   setInputValue,
   loadingData,
+  setLocalLoading,
 } = newSlice.actions;
 export default newSlice.reducer;

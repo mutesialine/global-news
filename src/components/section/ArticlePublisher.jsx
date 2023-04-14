@@ -1,7 +1,12 @@
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getTopHeadlines } from "../../features/api";
-import { choosePublisher, updateArticles } from "../../features/news";
+import {
+  choosePublisher,
+  loadingData,
+  updateArticles,
+  setLocalLoading,
+} from "../../features/news";
 import { AiOutlineLeftCircle, AiOutlineRightCircle } from "react-icons/ai";
 
 const ArticlePublisher = () => {
@@ -19,9 +24,12 @@ const ArticlePublisher = () => {
   };
 
   const handleSelectedPublisher = async (publisher) => {
+    dispatch(setLocalLoading(true));
     dispatch(choosePublisher(publisher));
     const data = await getTopHeadlines("us", publisher);
     dispatch(updateArticles(data));
+    dispatch(loadingData(false));
+    dispatch(setLocalLoading(false));
   };
 
   return (
