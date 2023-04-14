@@ -12,7 +12,7 @@ const NewsCard = ({ urlToImage, publishedAt, title, name }) => {
       <div className="px-2 py-2 bottom-2">
         <p className="text-md gap-x-2 italic pt-2 font-bold">{title}</p>
         <div className="flex  flex-col gap-x-2  text-sm  italic pt-2">
-          <p className="text-red-700">{formattedTime}hours ago</p>
+          <p className="text-red-700">{formattedTime} hours ago</p>
         </div>
       </div>
     </div>
