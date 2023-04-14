@@ -33,7 +33,7 @@ const ArticlePublisher = () => {
   };
 
   return (
-    <div className="flex gap-x-6 items-center px-8 py-2 text-white bg-black">
+    <div className="flex gap-x-6 items-center px-8 py-2 text-white bg-gray-900">
       <div
         onClick={() => handleScroll(-200)}
         className="hover:bg-gray-600 rounded-full cursor-pointer p-2"
