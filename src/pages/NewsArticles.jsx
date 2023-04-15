@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import ArticleList from "../components/section/ArticleList";
 import ArticlePublisher from "../components/section/ArticlePublisher";
 import ArticlesSearch from "../components/section/ArticlesSearch";
-import Wrapper from "../components/layout/Wrapper";
+import Wrapper from "../components/layouts/Wrapper";
 import { updateArticles, updatePublisher, loadingData } from "../features/news";
 import { useEffect } from "react";
 import { getSources, getTopHeadlines } from "../features/api";
 import ArticleListSkeleton from "../components/section/ArticleListSkeleton";
-import Footer from "../components/layout/Footer";
-import Navbar from "../components/Layout/Navbar";
+import Footer from "../components/layouts/Footer";
+import Navbar from "../components/layouts/Navbar";
 
 const NewsArticles = () => {
   const inputValue = useSelector((state) => state.news.inputValue);

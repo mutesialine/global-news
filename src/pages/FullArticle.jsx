@@ -1,8 +1,8 @@
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import Wrapper from "../components/layout/Wrapper";
+import Wrapper from "../components/layouts/Wrapper";
 import { BsArrowRight } from "react-icons/bs";
-import Footer from "../components/layout/Footer";
+import Footer from "../components/layouts/Footer";
 
 const FullArticle = () => {
   const { state } = useLocation();
