@@ -21,11 +21,15 @@ const ArticlesSearch = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8 px-5 md:px-16 mb-10">
-      {searchArticles?.map((article, index) => (
-        <Link to={"/full"} state={article} key={index}>
-          <NewsCard {...article} />
-        </Link>
-      ))}
+      {searchArticles?.length > 0 ? (
+        searchArticles?.map((article, index) => (
+          <Link to={"/full"} state={article} key={index}>
+            <NewsCard {...article} />
+          </Link>
+        ))
+      ) : (
+        <p className="text-lg">no results data found for " {inputValue} "</p>
+      )}
     </div>
   );
 };
