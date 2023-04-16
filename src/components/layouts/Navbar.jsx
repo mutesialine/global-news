@@ -6,7 +6,6 @@ const Navbar = () => {
   const inputValue = useSelector((state) => state.news.inputValue);
   const dispatch = useDispatch();
   const handleSearch = debounce((value) => {
-    console.log("inputvalue", value);
     dispatch(setInputValue(value));
   }, 500);
   return (
@@ -21,7 +20,9 @@ const Navbar = () => {
             className="outline-none text-bg-gray-900 w-12 sm:w-auto text-sm"
             onChange={(event) => handleSearch(event.target.value)}
           />
-          <AiOutlineSearch size={24} className="text-gray-700 pl-2" />
+          <div className="cursor-pointer">
+            <AiOutlineSearch size={32} className="text-gray-700 pl-2" />
+          </div>
         </div>
       </div>
     </div>
