@@ -12,7 +12,11 @@ const ArticleList = () => {
       }`}
     >
       {newsArticle.articles?.map((article, index) => (
-        <Link to={"/full"} state={article} key={`articles-index${index}`}>
+        <Link
+          to={"/fullArticle"}
+          state={article}
+          key={`articles-index${index}`}
+        >
           <NewsCard {...article} />
         </Link>
       ))}

@@ -21,9 +21,9 @@ const FullArticle = () => {
           </div>
           <div className="flex flex-col gap-4 md:w-1/2">
             <p className="text-red-800">{state.source.name}</p>
-            <p className="text-xl md:text-3xl">{state.description}</p>
+            <p className="text-xl md:text-2xl">{state.description}</p>
             <div className="flex gap-x-2 items-center p-2 bg-red-800 text-white w-fit rounded-md cursor-pointer hover:opacity-90">
-              <a href={state.url} className="text-lg">
+              <a href={state.url} target="_blank" className="text-lg">
                 Read more
               </a>
               <BsArrowRight size={24} />
