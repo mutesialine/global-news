@@ -1,5 +1,5 @@
 import moment from "moment";
-const NewsCard = ({ urlToImage, publishedAt, title, name }) => {
+const NewsCard = ({ urlToImage, publishedAt, title }) => {
   const formattedTime = moment(publishedAt).format("h");
 
   return (
@@ -13,9 +13,9 @@ const NewsCard = ({ urlToImage, publishedAt, title, name }) => {
         <p className="text-md gap-x-2 italic pt-2 font-bold hover:underline">
           {title}
         </p>
-        <div className="flex  flex-col gap-x-2 text-sm  italic pt-2">
-          <p className="text-red-700">{formattedTime} hours ago</p>
-        </div>
+        <ul className="marker:text-slate-500 list-disc pl-5 space-y-3 text-slate-500 text-sm  italic pt-2">
+          <li>{formattedTime}hours ago</li>
+        </ul>
       </div>
     </div>
   );

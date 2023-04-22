@@ -12,12 +12,12 @@ const Navbar = () => {
     <div className="w-full text-gray-900">
       <div className="py-8 px-4 md:px-32 flex gap-x-6 justify-between border-b-2 border-gray-900">
         <h2 className="text-lg md:text-4xl font-bold italic">GNews</h2>
-        <div className="flex gap-2 px-2 items-center border divide-x divide-solid bg-white shadow-md">
+        <div className="flex gap-2 px-2 items-center border divide-x divide-solid bg-white rounded-full cursor-pointer shadow-md">
           <input
             type="text"
             placeholder="search"
             value={inputValue}
-            className="outline-none text-bg-gray-900 w-12 sm:w-auto text-sm"
+            className="outline-none text-bg-gray-900 w-12 pl-4 sm:w-auto text-sm"
             onChange={(event) => dispatch(setInputValue(event.target.value))}
           />
           <div className="cursor-pointer">

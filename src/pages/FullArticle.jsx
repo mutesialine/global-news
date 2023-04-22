@@ -1,9 +1,12 @@
+import moment from "moment";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import Wrapper from "../components/layouts/Wrapper";
 import { BsArrowRight } from "react-icons/bs";
+
 const FullArticle = () => {
   const { state } = useLocation();
+  const formattedTime = moment(state.publishedAt).format("h");
   return (
     <Wrapper>
       <div className="pt-16 pb-8 px-12">
@@ -28,7 +31,9 @@ const FullArticle = () => {
               </a>
               <BsArrowRight size={24} />
             </div>
-            <p>{state.publishedAt}</p>
+            <ul className="marker:text-red-500 list-disc pl-5 space-y-3 text-red-500">
+              <li>{formattedTime}hours ago</li>
+            </ul>
           </div>
         </div>
       </div>
