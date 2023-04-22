@@ -6,8 +6,7 @@ import { getEverything } from "../../features/api";
 import { Link } from "react-router-dom";
 
 const ArticlesSearch = () => {
-  const searchArticles = useSelector((state) => state.news.search);
-  const inputValue = useSelector((state) => state.news.inputValue);
+  const { searchArticles, inputValue } = useSelector((state) => state.news);
   const dispatch = useDispatch();
 
   useEffect(() => {

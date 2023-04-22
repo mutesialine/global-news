@@ -11,10 +11,10 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const ArticlePublisher = () => {
   const dispatch = useDispatch();
-  const newsPublisher = useSelector((state) => state.news.publishers);
-  const selectedPublisher = useSelector(
-    (state) => state.news.selectedPublisher
+  const { newsPublisher, selectedPublisher } = useSelector(
+    (state) => state.news
   );
+
   const refInput = useRef(null);
   const handleScroll = (scrollOffset) => {
     const inputElement = refInput.current;

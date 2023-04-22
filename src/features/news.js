@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  articles: [],
+  newsArticle: [],
   publishers: [],
   selectedPublisher: null,
   search: [],
@@ -13,7 +13,7 @@ export const newSlice = createSlice({
   initialState: initialState,
   reducers: {
     updateArticles: (state, action) => {
-      state.articles = action.payload;
+      state.newsArticle = action.payload;
     },
     updatePublisher: (state, action) => {
       state.publishers = action.payload;
