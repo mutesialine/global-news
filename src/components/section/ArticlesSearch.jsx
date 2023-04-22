@@ -1,21 +1,22 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { searchCategory, loadingData } from "../../features/news";
 import NewsCard from "../ui/NewsCard";
 import { getEverything } from "../../features/api";
-import { Link } from "react-router-dom";
 
 const ArticlesSearch = () => {
   const { searchArticles, inputValue } = useSelector((state) => state.news);
   const dispatch = useDispatch();
 
+  async function fetchData() {
+    const data = await getEverything(inputValue);
+    dispatch(searchCategory(data.articles));
+    dispatch(loadingData(false));
+  }
+
   useEffect(() => {
-    async function fetchData() {
-      const data = await getEverything(inputValue);
-      dispatch(searchCategory(data.articles));
-      dispatch(loadingData(false));
-    }
-    fetchData();
+    fetchData(inputValue, dispatch);
   }, [inputValue]);
 
   return (

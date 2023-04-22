@@ -13,17 +13,16 @@ import Navbar from "../components/layouts/Navbar";
 const NewsArticles = () => {
   const inputValue = useSelector((state) => state.news.inputValue);
   const loading = useSelector((state) => state.news.loading);
-
   const dispatch = useDispatch();
 
+  async function fetchData() {
+    const publishers = await getSources();
+    const data = await getTopHeadlines("us");
+    dispatch(updateArticles(data));
+    dispatch(updatePublisher(publishers));
+    dispatch(loadingData(false));
+  }
   useEffect(() => {
-    async function fetchData() {
-      const publishers = await getSources();
-      const data = await getTopHeadlines("us");
-      dispatch(updateArticles(data));
-      dispatch(updatePublisher(publishers));
-      dispatch(loadingData(false));
-    }
     fetchData();
   }, []);
 

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   newsArticle: [],
-  publishers: [],
+  newsPublisher: [],
   selectedPublisher: null,
-  search: [],
+  searchArticles: [],
   inputValue: "",
   loading: true,
   localLoading: false,
@@ -16,14 +16,14 @@ export const newSlice = createSlice({
       state.newsArticle = action.payload;
     },
     updatePublisher: (state, action) => {
-      state.publishers = action.payload;
+      state.newsPublisher = action.payload;
     },
     choosePublisher: (state, action) => {
       state.inputValue = null;
       state.selectedPublisher = action.payload;
     },
     searchCategory: (state, action) => {
-      state.search = action.payload;
+      state.searchArticles = action.payload;
     },
     setInputValue: (state, action) => {
       state.inputValue = action.payload;
