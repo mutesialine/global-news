@@ -11,7 +11,6 @@ export const getTopHeadlines = async (country, sources = null) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error(error);
     return { message: "An error occurred. Please try again later." };
   }
 };
@@ -24,7 +23,6 @@ export const getSources = async () => {
     const publishers = data.sources.map((source) => source.id);
     return publishers;
   } catch (error) {
-    console.error(error);
     return { message: "An error occurred. Please try again later." };
   }
 };
@@ -36,7 +34,6 @@ export const getEverything = async (value) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error(error);
     return { message: "An error occurred. Please try again later." };
   }
 };
