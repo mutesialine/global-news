@@ -7,7 +7,6 @@ import { updateArticles, updatePublisher, loadingData } from "../features/news";
 import { useEffect } from "react";
 import { getSources, getTopHeadlines } from "../features/api";
 import ArticleListSkeleton from "../components/section/ArticleListSkeleton";
-import Footer from "../components/layouts/Footer";
 import Navbar from "../components/layouts/Navbar";
 
 const NewsArticles = () => {
@@ -29,17 +28,14 @@ const NewsArticles = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Wrapper>
-        {loading ? (
-          <ArticleListSkeleton />
-        ) : (
-          <>
-            <ArticlePublisher />
-            {!inputValue ? <ArticleList /> : <ArticlesSearch />}
-          </>
-        )}
-      </Wrapper>
-      <Footer />
+      {loading ? (
+        <ArticleListSkeleton />
+      ) : (
+        <>
+          <ArticlePublisher />
+          {!inputValue ? <ArticleList /> : <ArticlesSearch />}
+        </>
+      )}
     </div>
   );
 };

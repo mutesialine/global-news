@@ -25,11 +25,14 @@ const FullArticle = () => {
           <div className="flex flex-col gap-4 md:w-1/2">
             <p className="text-red-800">{state.source.name}</p>
             <p className="text-xl md:text-2xl">{state.description}</p>
-            <div className="flex gap-x-2 items-center p-2 bg-red-800 text-white w-fit rounded-md cursor-pointer hover:opacity-90">
+            <div className="flex gap-x-2 items-center py-2 px-4 bg-red-800 text-white w-fit rounded-md cursor-pointer hover:opacity-90">
               <a href={state.url} target="_blank" className="text-lg">
                 Read more
               </a>
-              <BsArrowRight size={24} />
+              <BsArrowRight
+                size={24}
+                className="hover:translate-x-44 duration-100"
+              />
             </div>
             <ul className="marker:text-red-500 list-disc pl-5 space-y-3 text-red-500">
               <li>{formattedTime}hours ago</li>
