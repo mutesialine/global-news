@@ -8,7 +8,6 @@ const FullArticle = () => {
   const { state } = useLocation();
   const formattedTime = moment(state.publishedAt).format("h");
   return (
-    <Wrapper>
       <div className="pt-16 pb-8 px-12">
         <Link to="/" className="bg-gray-200 p-2 rounded-md hover:opacity-70">
           Back to Home
@@ -31,7 +30,6 @@ const FullArticle = () => {
               </a>
               <BsArrowRight
                 size={24}
-                className="hover:translate-x-44 duration-100"
               />
             </div>
             <ul className="marker:text-red-500 list-disc pl-5 space-y-3 text-red-500">
@@ -40,7 +38,6 @@ const FullArticle = () => {
           </div>
         </div>
       </div>
-    </Wrapper>
   );
 };
 
