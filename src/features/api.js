@@ -4,8 +4,8 @@ const API_URL = "https://news-proxy.netlify.app/api";
 export const getTopHeadlines = async (country, sources = null) => {
   try {
     const url = sources
-      ? `${API_URL}/top-headlines?sources=${sources}&apiKey=${API_KEY}&pageSize=12`
-      : `${API_URL}/top-headlines?country=${country}&apiKey=${API_KEY}&pageSize=12`;
+      ? `${API_URL}/top-headlines?sources=${sources}&apiKey=${API_KEY}&pageSize=10`
+      : `${API_URL}/top-headlines?country=${country}&apiKey=${API_KEY}&pageSize=10`;
 
     const response = await fetch(url);
     const data = await response.json();
