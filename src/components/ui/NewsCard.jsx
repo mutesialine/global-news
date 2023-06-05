@@ -1,6 +1,6 @@
 import moment from "moment";
 const NewsCard = ({ urlToImage, publishedAt, title }) => {
-  const formattedTime = moment(publishedAt).format("h");
+  const formattedTime = moment(publishedAt).format("h",);
 
   return (
     <div className="space-y-2 relative text-gray-900 flex flex-col item-center group hover:opacity-90 cursor-pointer">

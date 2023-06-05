@@ -1,14 +1,10 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { setInputValue } from "../../features/news";
-import { debounce } from "lodash";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   const inputValue = useSelector((state) => state.news.inputValue);
   const dispatch = useDispatch();
-  // const handleSearch = debounce((value) => {
-  //   dispatch(setInputValue(value));
-  // }, 500);
   return (
     <div className="w-full text-gray-900">
       <div className="py-8 px-4 md:px-32 flex gap-x-6 justify-between border-b-2 border-gray-900">
