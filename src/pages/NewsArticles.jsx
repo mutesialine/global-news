@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import ArticleList from "../components/section/ArticleList";
-import ArticlePublisher from "../components/section/ArticlePublisher";
-import ArticlesSearch from "../components/section/ArticlesSearch";
-import Wrapper from "../components/layouts/Wrapper";
+import ArticleList from "../components/sections/ArticleList";
+import ArticlePublisher from "../components/sections/ArticlePublisher";
+import ArticlesSearch from "../components/sections/ArticlesSearch";
 import { updateArticles, updatePublisher, loadingData } from "../features/news";
 import { useEffect } from "react";
 import { getSources, getTopHeadlines } from "../features/api";
-import ArticleListSkeleton from "../components/section/ArticleListSkeleton";
+import ArticleListSkeleton from "../components/sections/ArticleListSkeleton";
 import Navbar from "../components/layouts/Navbar";
 
 const NewsArticles = () => {
